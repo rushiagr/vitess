@@ -1,7 +1,6 @@
 CREATE TABLE test_table(
-  id BIGINT AUTO_INCREMENT,
+  id BIGINT UNSIGNED,
   msg VARCHAR(250),
-  replication_id VARBINARY(10),
   PRIMARY KEY (id)
 ) ENGINE=InnoDB
 
