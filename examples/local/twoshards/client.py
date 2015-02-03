@@ -36,9 +36,9 @@ cursor = conn.cursor('test_keyspace', 'master',
                      keyranges=UNSHARDED, writable=True)
 cursor.begin()
 cursor.execute(
-    "INSERT INTO test_table (id, msg) VALUES (%(id)d, %(msg)s)",
-    {'msg': 'V is for speed', 'rep_id':
-        'id': random.randint(0,18446744073709551615)})
+    "INSERT INTO test_table (id, msg) VALUES (%(aid)s, %(msg)s)",
+    {'msg': 'V is for speed',
+     'aid': random.randint(0,18446744073709551615)})
 cursor.commit()
 
 
