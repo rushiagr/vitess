@@ -33,12 +33,14 @@ topoconn.close()
 # Insert something.
 print('Inserting into master...')
 cursor = conn.cursor('test_keyspace', 'master',
-                     keyranges=UNSHARDED, writable=True)
+                     keyranges='80', writable=True)
+arr=['A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 cursor.begin()
 cursor.execute(
-    "INSERT INTO test_table (id, msg) VALUES (%(aid)s, %(msg)s)",
+    ("INSERT INTO test_table (id, msg, keyspace_id) VALUES (%(aid)d, %(msg)s, 0x" + arr[random.randint(0,15)] +"000000000000000)"),
     {'msg': 'V is for speed',
-     'aid': random.randint(0,18446744073709551615)})
+     'aid': 123452532525253252,#random.randint(0,18446744073709551615),
+     })
 cursor.commit()
 
 

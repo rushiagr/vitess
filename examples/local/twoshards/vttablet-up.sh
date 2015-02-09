@@ -7,8 +7,8 @@ set -e
 
 cell='test'
 keyspace='test_keyspace'
-shard1=0
-shard2=1
+shard1="-80"
+shard2="80-"
 uid_base1=100
 port_base1=15100
 mysql_port_base1=33100
